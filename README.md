@@ -1,6 +1,9 @@
 # 351Assignment2
+
 CPSC 351 Assignment 2
+
 CPSC 351 Section: 02
+
 Group Names: Steven Alverez, Kunal Matthews, David Williamson
 
 Program Language used: C++
