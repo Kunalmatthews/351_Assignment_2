@@ -1,1 +1,85 @@
 
+PURPOSE: Create a simulator that will read policy information and the characteristics of the workload from input files and then will
+simulate the execution of the processes as well as decisions of the Memory manager.
+
+INPUT: Three txt files: Out1, Out2, Out3, which contain paging and memory sizes.
+
+PSUEDOCODE:
+
+struct Memory_block
+{
+     int start;
+    int end;
+    int process_number;
+    int page_number;
+    int total_size;
+    int release_time;
+    bool available;
+}
+
+CLASS PROCESS{
+    int processid;
+    int time_start;
+    int time_end;
+    int time_life;
+    int memblock_count;
+    int tot_memory;
+    int vector memblocks;
+    
+    void printprocess(){
+      << Output process id;
+      << Output timestart;
+      << Output timeend;
+      << Output timelife;
+      << Output totalMemory;
+    }
+    
+    bool compareEndTimes(Process 1, Process 2){
+      return smaller process;
+    }
+    
+    int readFile(){
+      Open infile;
+      Check if infile = NULL;
+      While (infile != NULL){
+        read infile into process queue;
+        read infile into events;
+      }
+      
+      void buildMemMap(){
+        create mem vector with memory_size and page_ sizes;
+      }
+      
+      bool checkAvailableMem(){
+        check if mem vector page vector has available space for process
+          if space not available return false
+          else return true
+      }
+      
+      bool checkForContMem(){
+        check if mem vector has a continous memory block
+          return true if continuous
+          else return false
+      }
+      
+      void addProcessToMem(){
+        put new process into mem vector at page vector
+      }
+      
+    }
+    
+    int main(){
+      initialize variables;
+      initialize process vector, memory block vector, pages vector, and events vector;
+      
+      user inputs memory size and page size;
+      
+      readFile call;
+      
+      buildMemMap call;
+      
+      build process queue;
+    }
+    
+    
+}
