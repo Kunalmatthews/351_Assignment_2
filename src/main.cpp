@@ -18,6 +18,7 @@ public:
     int time_life;
     int memblock_count;
     int tot_memory;
+    int turnaround;
     vector<int> memblocks;
     
     bool operator < (const Process & a) const
@@ -32,6 +33,7 @@ public:
         cout << "Process Time End: " << time_end << endl;
         cout << "Process Time Life: " << time_life << endl;
         cout << "Total Memory: " << tot_memory << endl;
+	cout << "Turnaround Time: " << turnaround << endl;
     }
 };
 
@@ -119,6 +121,7 @@ int main()
                 process.time_end = process_queue[size_of_process_queue].time_end;
                 process.time_life = process_queue[size_of_process_queue].time_life;
                 process.tot_memory = process_queue[size_of_process_queue].tot_memory;
+		process.turnaround = process.time_end - process.time_start;
     	   }
             //release finished processes
             for(int i = 0; i < memory_block.size(); i++)
