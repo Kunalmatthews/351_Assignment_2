@@ -44,10 +44,11 @@ bool compareEndTime(const Process & a, const Process & b)
     return a.time_end > b.time_end;
 }
 
-//Struct to handele memory block parameters
+//Struct to handle memory block parameters
 struct Memory_Block
 {
     int start;
+
     int end;
     int process_number;
     int page_number;
@@ -57,8 +58,14 @@ struct Memory_Block
 };
 
 int readFile(vector<Process> & process_queue, vector<int> & events);
-void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size);
-bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages);
+void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size){
+	// Fill memmap with data?
+};
+bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages){
+	// 
+	
+	else{return true;}
+};
 bool checkForContMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages, int & page_number);
 int addProcessToMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages);
 
