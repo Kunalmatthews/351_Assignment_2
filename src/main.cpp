@@ -57,13 +57,13 @@ struct Memory_Block
     bool available;
 };
 
-int readFile(vector<Process> & process_queue, vector<int> & events);
+int readFile(vector<Process> & process_queue, vector<int> & events)
 // Why do we need page size for the memMap?
 {
 	int temp = 0;
 	fscanf(filePtr, "%d", &temp);//stores first integer in file to temp
 	return temp;
-}
+};
 void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size){
 	// Fill memmap with data?
 	memory_block.resize(memory_size);
