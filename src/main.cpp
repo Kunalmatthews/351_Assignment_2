@@ -58,13 +58,15 @@ struct Memory_Block
 };
 
 int readFile(vector<Process> & process_queue, vector<int> & events);
+// Why do we need page size for the memMap?
 void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size){
 	// Fill memmap with data?
+	memory_block.resize(memory_size);
 };
 bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages){
 // check if mem page vector has available space for process.
 
-//	if(){ return false;
+//	if(process.totmemory){ return false;
 //	}
 //	else(){ return true;
 //	}
@@ -89,7 +91,7 @@ int main()
 {
     string file = "in1.txt";
     int process_count, choice;
-    int memory_size = 0, page_size = 0, turnaround = 0, end_time = 0, size_of_process_queue = 0;
+    int memory_size = 0, page_size = 0, end_time = 0, size_of_process_queue = 0;
     vector<Process> process_queue, in_memory, ready_queue;
     vector<Memory_Block> memory_block;
     vector<int> events, pages;
