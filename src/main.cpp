@@ -62,13 +62,28 @@ void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_
 	// Fill memmap with data?
 };
 bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages){
-	// 
-	
-	else{return true;}
-};
-bool checkForContMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages, int & page_number);
-int addProcessToMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages);
+// check if mem page vector has available space for process.
 
+//	if(){ return false;
+//	}
+//	else(){ return true;
+//	}
+
+};
+
+bool checkForContMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages, int & page_number){
+// Check if mem vector has available space for the process. 
+
+//	if(){ return false;
+//	}
+//	else(){ return true;
+//	}
+
+}
+// This is supposed to be a void I believe
+void addProcessToMem(vector<Memory_Block> & memory_block, Process process, vector<int> &pages){
+// Put new process into the page vector if the memory block is free.
+}
 
 int main()
 {
