@@ -57,16 +57,34 @@ struct Memory_Block
     bool available;
 };
 
-int readFile(vector<Process> & process_queue, vector<int> & events)
+int readFile(vector<Process> & process_queue, vector<int> & events, FILE* filePtr)
 // Why do we need page size for the memMap?
 {
 	int temp = 0;
 	fscanf(filePtr, "%d", &temp);//stores first integer in file to temp
 	return temp;
 };
-void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size){
+void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_size, FILE* filePtr, process_count){
 	// Fill memmap with data?
+	int count = 0;
+	int pieces = 0;
+	int temp = 0;
+	Process* processPtr;
 	memory_block.resize(memory_size);
+	while(count < process_count)
+	{
+		processPtr = new Process;
+		fscanf(filePtr, "%d %d %d %d", &(processPtr.processid), 
+			&(processPtr.time_start), &(processPtr.time_life), &pieces);
+		processPtr.tot_memory = 0;
+		for (int i = 0; i < pieces; i++) 
+		{
+			fscanf(filePtr, "%d", &temp);
+			processPtr.tot_memory = temp + processPtr.tot_memory;
+		}
+		process_queue.pushback (processPtr);
+		count++
+	}
 };
 bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages){
 // check if mem page vector has available space for process.
@@ -123,10 +141,15 @@ int main()
             break;
     }
 
-    process_count = readFile(process_queue, events);
+	FILE* filePtr = fopen(file, "r");//open file for reading and error check
+	if (!filePtr) {
+        cout << "error, file not opened";
+        exit(1);
+}
+	process_count = readFile(process_queue, events, filePtr);
     
-    buildMemMap(memory_block, memory_size, page_size);
-    
+	buildMemMap(memory_block, memory_size, page_size, filePtr, process_count);
+    	fclose(filePtr);//close file since processes have been read in
     //Build the process queue
     for (int time = 0; time < events.back() + 1; time++)
     {
