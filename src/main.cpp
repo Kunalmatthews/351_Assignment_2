@@ -88,11 +88,13 @@ void buildMemMap(vector<Memory_Block> & memory_block, int memory_size, int page_
 };
 bool checkAvailableMem(vector<Memory_Block> & memory_block, Process process, int page_size, vector<int> & pages){
 // check if mem page vector has available space for process.
+	bool availableSpace = false;
 
-//	if(process.totmemory){ return false;
-//	}
-//	else(){ return true;
-//	}
+	for(vector<Memory_Block>::iterator it == memory_block.begin(); it != memory_block.end(); i++){
+	if(process.totmemory <= memory_block[it].total_size){ availableSpace = true;
+	}
+}	
+	return availableSpace;
 
 };
 
