@@ -6,6 +6,8 @@ Group Names: Steven Alverez, Kunal Matthews, David Williamson
 
 Program Language used: C++
 
+Used Github to collaborate
+
 How to execute program:
 
     1. Download tar files.
